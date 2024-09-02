@@ -1,0 +1,23 @@
+#+title: Volumes
+
+Persisting data should be outside of the container
+* Ways of mounting data
+Mounting is the process of making a file system accessible to the operating system.
+It attaches a file system to a specified directory (=the mount point=).
+
+In the context of Docker containers, mounting refers to the process of linking a directory from the host machine or another Docker volume to a directory within the container.
+
+** bind mounts
+Bind mounts mount host paths, like =/data=, and mounts them inside the container =/opt/app/data=.
+
+pros:
+- easy
+- direct connection to host filesystem
+
+cons:
+- need to be specified at runtime
+  - path to mount might vary from host to host
+- need to deal with backup, migration in a tool outside Docker ecosystem
+
+** volumes
+- using a =named= or =unnamed= volume to store external data
